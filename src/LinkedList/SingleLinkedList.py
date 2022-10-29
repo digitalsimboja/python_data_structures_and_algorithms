@@ -1,15 +1,21 @@
 # Create a class Node
+from statistics import mode
+
+
 class Node:
-    def __init__(self, value = None):
+    def __init__(self, value=None):
         self.value = value
         self.next = None
 
 # Creat the SingleLinkedList class
+
+
 class SingleLinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
     # create __iter__ function so the list can be iterated
+
     def __iter__(self):
         node = self.head
         while node:
@@ -35,10 +41,10 @@ class SingleLinkedList:
                 self.tail.next = newNode
                 self.tail = newNode
             else:
-                # Let current node be the head 
+                # Let current node be the head
                 tempNode = self.head
                 index = 0
-                while index < location -1:
+                while index < location - 1:
                     tempNode = tempNode.next
                     index += 1
                 # Now we have the current Node, we need to insert the new Node after this current node
@@ -47,11 +53,73 @@ class SingleLinkedList:
                 tempNode.next = newNode
                 newNode.next = nextNode
 
+    def traverseSL(self):
+        # check if list exists
+        if self.head is None:
+            print("List does not exist")
+        else:
+            node = self.head
+            while node is not None:
+                print(node.value)
+                node = node.next
+
+    def searchNode(self, value):
+        # check if list exists
+        if self.head is None:
+            return "List does not exist"
+        else:
+            # get the current head node
+            node = self.head
+            while node is not None:
+                if node.value == value:
+                    return node.value
+                node = node.next
+            return "The value does not exist in the list"
+
+    def deleteNode(self, location):
+        if self.head is None:
+            print("List does not exist")
+        else:
+            if location == 0:
+                # check if the head and the tail are pointing to same node
+                # This is a situation where we have only one node
+                if self.head == self.tail:
+                    self.head = None
+                    self.tail = None
+                else:
+                    self.head = self.head.next
+                # We have more than one node, check if location is first
+            elif location == 1:
+                # check if this is the only and last node
+                if self.head == self.tail:
+                    self.head = None
+                    self.tail = None
+                else:
+                    # The current node next value is the tail, so set it to None and set the tail to the current value
+                    node = self.head
+                    while node is not None:
+                        if node.next == self.tail:
+                            break
+                        node = node.next
+                    node.next = None
+                    self.tail = node
+            else:
+                # We are deleting inside the list
+                tempNode = self.head
+                index = 0
+                while index < location - 1:
+                    tempNode = tempNode.next
+                    index += 1
+                nextNode = tempNode.next
+                # set the current node next to the nextNode.next
+                tempNode.next = nextNode.next
+
+
 
 
 
 
 # TEST
 singleList = SingleLinkedList()
-singleList.insertNode(0,1)
+singleList.insertNode(0, 1)
 print([node for node in singleList])
