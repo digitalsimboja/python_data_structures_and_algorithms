@@ -113,6 +113,11 @@ class CircularLinkedList:
                 tempNode.next = nextNode.next
 
 
+    def deleteEntireCSL(self):
+        self.head = None
+        self.tail.next = None
+        self.tail = None
+
 
 
 
