@@ -16,7 +16,7 @@ class SingleLinkedList:
 
     def __iter__(self):
         node = self.head
-        while node is not None:
+        while node:
             yield node
             node = node.next
 
@@ -32,8 +32,8 @@ class SingleLinkedList:
         else:
             if location == 0:
                 # insert the new node at the head
-                self.head.next = newNode
                 newNode.next = self.head
+                self.head = newNode
             elif location == 1:
                 newNode.next = None
                 self.tail.next = newNode
@@ -50,6 +50,8 @@ class SingleLinkedList:
                 nextNode = tempNode.next
                 tempNode.next = newNode
                 newNode.next = nextNode
+                if tempNode == self.tail:
+                    self.tail = newNode
 
     def traverseSL(self):
         # check if list exists
@@ -129,6 +131,18 @@ singleList.insertNode(2, 1)
 singleList.insertNode(3, 1)
 singleList.insertNode(4, 1)
 singleList.insertNode(0, 0)
-singleList.insertNode(0, 4)
+singleList.insertNode(0, 3)
+
+# Printing the newly created single linked list
+print("Newly created single linked lists")
+print([node.value for node in singleList])
+
+# Printing the deleted node at location 3
+print('Deletes the node at location 3')
+singleList.deleteNode(3)
+print([node.value for node in singleList])
+
+# Printing the deleted entire node
+print('Deletes the entire node')
 singleList.deleteEntireSLL()
 print([node.value for node in singleList])
