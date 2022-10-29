@@ -8,8 +8,6 @@ class Node:
         self.next = None
 
 # Creat the SingleLinkedList class
-
-
 class SingleLinkedList:
     def __init__(self):
         self.head = None
@@ -18,7 +16,7 @@ class SingleLinkedList:
 
     def __iter__(self):
         node = self.head
-        while node:
+        while node is not None:
             yield node
             node = node.next
 
@@ -114,12 +112,23 @@ class SingleLinkedList:
                 # set the current node next to the nextNode.next
                 tempNode.next = nextNode.next
 
-
+    def deleteEntireSLL(self):
+        if self.head is None:
+            print("The Single Linked list does not exist")
+        else:
+            self.head = None
+            self.tail = None
 
 
 
 
 # TEST
 singleList = SingleLinkedList()
-singleList.insertNode(0, 1)
-print([node for node in singleList])
+singleList.insertNode(1, 1)
+singleList.insertNode(2, 1)
+singleList.insertNode(3, 1)
+singleList.insertNode(4, 1)
+singleList.insertNode(0, 0)
+singleList.insertNode(0, 4)
+singleList.deleteEntireSLL()
+print([node.value for node in singleList])
