@@ -113,6 +113,18 @@ class DoubleLinkedList:
                 currentNode.next = currentNode.next.next
                 currentNode.next.previous = currentNode
             print('The node has been successfully deleted')
+        
+    def deleteEntireDLL(self):
+        if self.head is None:
+            print('The list does not exist')
+        else:
+            tempNode = self.head
+            while tempNode:
+                tempNode.previous = None
+                tempNode = tempNode.next
+            self.head = None
+            self.tail = None
+            print('The doubly linked list has been succesfully deleted')
                 
                 
 
@@ -143,5 +155,8 @@ print(doubleLL.searchNode(3))
 print(doubleLL.searchNode(6))
 
 doubleLL.deleteNode(-1)
+print([node.value for node in doubleLL])
 
+
+doubleLL.deleteEntireDLL()
 print([node.value for node in doubleLL])
