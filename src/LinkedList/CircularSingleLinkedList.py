@@ -1,4 +1,5 @@
 from hashlib import new
+import tarfile
 
 
 class Node:
@@ -74,6 +75,45 @@ class CircularLinkedList:
                 node = node.next
                 if node  == self.tail.next:
                     return 'Node is not found'
+    
+    def deleteNode(self, location):
+        if self.head is None:
+            print('Node does not exist')
+        else:
+            if location == 0:
+                # If we have only one node
+                if self.head == self.tail:
+                    self.head.next = None
+                    self.head = None
+                    self.tail = None
+                else:
+                    self.head = self.head.next
+                    self.tail.next = self.head
+            elif location == 1:
+                 # If we have only one node
+                if self.head == self.tail:
+                    self.head.next = None
+                    self.head = None
+                    self.tail = None
+                else:
+                    node = self.head
+                    while node is not None:
+                        if node.next == self.tail:
+                            break
+                        node = node.next
+                    node.next = self.head
+                    self.tail = node
+            else:
+                tempNode = self.head
+                index = 0
+                while index < location - 1:
+                    tempNode = tempNode.next
+                    index += 1
+                nextNode = tempNode.next
+                tempNode.next = nextNode.next
+
+
+
 
 
 circleSLL = CircularLinkedList()
@@ -88,3 +128,7 @@ print([node.value for node in circleSLL])
 circleSLL.traverseCircularSLL()
 print('Searching for a node in the circular linked list')
 print(circleSLL.searchNodeInCSL(4))
+
+circleSLL.deleteNode(3)
+print([node.value for node in circleSLL])
+
