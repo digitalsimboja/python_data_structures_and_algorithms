@@ -1,7 +1,4 @@
 # Create a class Node
-from statistics import mode
-
-
 class Node:
     def __init__(self, value=None):
         self.value = value
