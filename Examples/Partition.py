@@ -15,7 +15,7 @@ def partition(linkedList, x):
         else:
             linkedList.tail.next = currNode
             linkedList.tail = currNode
-        currNode.next = nextNode.next
+        currNode = nextNode
     if linkedList.tail.next is not None:
         linkedList.tail.next = None
 
@@ -27,6 +27,6 @@ customLL = base.LinkedList()
 customLL.generate(10, 0, 99)
 print(customLL)
 
-partition(customLL, 50)
+partition(customLL, 30)
 print(customLL)
 
