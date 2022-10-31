@@ -51,5 +51,3 @@ class LinkedList:
             self.add(randint(min_value, max_value))
         return self
 
-
-
