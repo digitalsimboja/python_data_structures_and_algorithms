@@ -1,5 +1,3 @@
-from operator import index
-from os import link
 import base
 
 # Implement an algorithm to find all the elements nth to the last element of a singly linked list
