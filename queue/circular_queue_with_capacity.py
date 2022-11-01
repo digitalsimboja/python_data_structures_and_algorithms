@@ -1,5 +1,3 @@
-from sys import maxsize
-
 
 class Queue:
     def __init__(self, maxSize):
