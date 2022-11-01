@@ -6,9 +6,6 @@
 # Then pop the item at the top of the second stack
 # Finally, pop all items from the second stack into the first stack
 
-from numpy import insert
-
-
 class Stack:
     def __init__(self):
         self.list = []
