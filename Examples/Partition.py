@@ -1,4 +1,4 @@
-import base
+import Tree.base as base
 
 # Write code to partition a linked list around a value x, such that all nodes
 # less than x comes before all nodes greater than or equal to x

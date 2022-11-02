@@ -1,4 +1,4 @@
-import base
+import Tree.base as base
 
 # Implement an algorithm to find all the elements nth to the last element of a singly linked list
 def traverseKthToLast(linkedList, location):

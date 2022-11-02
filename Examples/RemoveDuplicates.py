@@ -1,5 +1,5 @@
 
-import base
+import Tree.base as base
 
 # Example 1
 # Write a code to remove duplicates from an unsorted linked list
