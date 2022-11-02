@@ -1,4 +1,5 @@
 from base import Quueue
+
 class TreeNode:
     def __init__(self, data=None):
         self.data = data
@@ -53,6 +54,22 @@ def levelOrderTraversal(rootNode):
             if (root.value.rightChild is not None):
                 customQueue.enqueue(root.value.rightChild)
 
+def searchBinaryTree(rootNode, nodeValue):
+    if rootNode is None:
+        return "No binary tree to search"
+    else:
+        customQueue = Quueue()
+        customQueue.enqueue(rootNode)
+        while not(customQueue.isEmpty()):
+            root = customQueue.dequeue()
+            if root.value.data == nodeValue:
+                return "Success! Node value exists in binary tree"
+            else:
+                if (root.value.leftChild is not None):
+                    customQueue.enqueue(root.value.leftChild)
+                if (root.value.rightChild is not None):
+                    customQueue.enqueue(root.value.rightChild)
+        return "Node value does not exist in the binary tree"
 
 root = TreeNode('Drinks')
 
@@ -82,3 +99,6 @@ postOrderTraversal(root)
 
 print('Performing a level order traversal')
 levelOrderTraversal(root)
+
+print('Performing binary search')
+print(searchBinaryTree(root, 'Bread'))
