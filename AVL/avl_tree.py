@@ -57,12 +57,13 @@ def searchNode(rootNode, nodeValue):
         else:
             searchNode(rootNode.rightChild)
 
+# Helper functions
 def getHeight(rootNode):
     if not rootNode:
         return 0
     else:
         return rootNode.height
-
+# Helper functions
 def rightRotate(disbalancedNode):
     newRoot = disbalancedNode.leftChild
     disbalancedNode.leftChild = disbalancedNode.leftChild.rightChild
